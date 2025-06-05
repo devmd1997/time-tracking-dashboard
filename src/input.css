@@ -1,1 +1,152 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
 @import "tailwindcss";
+
+@theme {
+
+/* Colors */
+
+    /* Neutrals */
+    --color-white: #FFFFFF;
+    --color-black: #000000;
+
+    /* Primary */
+    --color-navy-200: #BBC0FF;
+    --color-navy-800: #33397A;
+    --color-navy-900: #1C204B;
+    --color-navy-950: #0E1323;
+
+    /* Secondary */
+    --color-purple-500: #7078C9;
+    --color-purple-600: #5747EA;
+    --color-purple-700: #7335D2;
+
+    /* Accent */
+    --color-pink: #FF5E7D;
+    --color-orange: #FF8B64;
+    --color-yellow: #F1C75B;
+    --color-green: #4BCF82;
+    --color-grey: #D8D8D8;
+    --color-blue: #55C2E6;
+
+/* Typography */
+
+    /* Font */
+    --font-rubik: 'Rubik', sans-serif;
+    --font-weight-light: 300;
+    --font-weight-normal: 400;
+    --font-weight-medium: 500;
+
+    /* Text Scale */
+    --text-base: 15px;
+    --text-base-line-height: 18px;
+    --text-lg: 18px;
+    --text-lg-line-height: 22px;
+    --text-xl: 24px;
+    --text-xl-line-height: 28px;
+    --text-2xl: 32px;
+    --text-2xl-line-height: 38px;
+    --text-3xl: 40px;
+    --text-3xl-line-height: 47px;
+    --text-4xl: 56px;
+    --text-4xl-line-height: 66px;
+    
+    /* Spacing */
+    --spacing: 8px;
+
+    /* Breakpoints */
+    --breakpoint-sm: 375px;
+    --breakpoint-md: 768px;
+    --breakpoint-lg: 1440px;
+}
+
+@layer base {
+
+    body {
+        @apply bg-navy-950 text-white font-rubik tracking-[0px] flex flex-col items-center md:justify-center min-h-screen;
+    }
+
+}
+
+@layer utilities {
+    .text-preset-1 {
+        @apply text-4xl font-light;
+    }
+
+    .text-preset-2 {
+        @apply text-3xl font-light;
+    }
+
+    .text-preset-3 {
+        @apply text-2xl font-light;
+    }
+
+    .text-preset-4 {
+        @apply text-xl font-light;
+    }
+
+    .text-preset-5 {
+        @apply text-lg font-normal;
+    }
+
+    .text-preset-5-md {
+        @apply text-lg font-medium;
+    }
+
+    .text-preset-6 {
+        @apply text-base font-normal;
+    }
+}
+
+@layer components {
+    .content-layout {
+        @apply flex flex-col md:flex-none md:grid md:grid-cols-3 lg:grid-cols-4 lg:grid-rows-2 lg:max-w-[1116px] md:max-w-[677px] px-2 my-8 gap-4;
+    }
+
+    .card {
+        @apply flex flex-col gap-1 rounded-[15px] bg-navy-900 overflow-clip;
+        
+        .card-content {
+            @apply p-3 rounded-t-[15px] h-full md:flex md:flex-col md:gap-2 bg-navy-900 hover:bg-navy-800 mt-[12%];
+        }
+
+        .options-button {
+            @apply text-purple-500 hover:text-navy-200 cursor-pointer
+        }
+
+        .text-layout {
+            @apply flex flex-row justify-between items-center;
+        }
+
+        .text-layout-2 {
+            @apply flex flex-row md:flex-col md:items-start justify-between items-center;
+        }
+
+        .footer {
+            @apply flex flex-row lg:flex-col lg:items-start lg:justify-between lg:pl-4 lg:gap-2 justify-around items-center py-3;
+
+            .footer-option {
+                @apply text-purple-500 hover:text-navy-200 cursor-pointer;
+                
+                &.selected {
+                    @apply text-white hover:text-white
+                }
+            }
+        }
+    }
+
+    .profile-container {
+        @apply flex flex-row lg:flex-col lg:items-start items-center gap-3 p-4 rounded-[15px] bg-purple-600;
+
+        .text-content {
+            @apply flex flex-col gap-1;
+        }
+    }
+
+    .card-wrapper {
+        @apply relative;
+    }
+
+    .card-header {
+        @apply bg-no-repeat bg-[position:right_8px_top_-10px] bg-[length:auto];
+    }
+}
