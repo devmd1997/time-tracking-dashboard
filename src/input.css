@@ -67,34 +67,39 @@
 
 }
 
-@layer utilities {
-    .text-preset-1 {
-        @apply text-4xl font-light;
-    }
+@utility text-preset-1 {
+    font-size: var(--text-4xl);
+    font-weight: var(--font-weight-light);
+}
 
-    .text-preset-2 {
-        @apply text-3xl font-light;
-    }
+@utility text-preset-2 {
+    font-size: var(--text-3xl);
+    font-weight: var(--font-weight-light);
+}
 
-    .text-preset-3 {
-        @apply text-2xl font-light;
-    }
+@utility text-preset-3 {
+    font-size: var(--text-2xl);
+    font-weight: var(--font-weight-light);
+}
 
-    .text-preset-4 {
-        @apply text-xl font-light;
-    }
+@utility text-preset-4 {
+    font-size: var(--text-xl);
+    font-weight: var(--font-weight-light);
+}
 
-    .text-preset-5 {
-        @apply text-lg font-normal;
-    }
+@utility text-preset-5 {
+    font-size: var(--text-lg);
+    font-weight: var(--font-weight-normal);
+}
 
-    .text-preset-5-md {
-        @apply text-lg font-medium;
-    }
+@utility text-preset-5-md {
+    font-size: var(--text-lg);
+    font-weight: var(--font-weight-medium);
+}
 
-    .text-preset-6 {
-        @apply text-base font-normal;
-    }
+@utility text-preset-6 {
+    font-size: var(--text-base);
+    font-weight: var(--font-weight-normal);
 }
 
 @layer components {
@@ -106,7 +111,7 @@
         @apply flex flex-col gap-1 rounded-[15px] bg-navy-900 overflow-clip;
         
         .card-content {
-            @apply p-3 rounded-t-[15px] h-full md:flex md:flex-col md:gap-2 bg-navy-900 hover:bg-navy-800 mt-[12%];
+            @apply p-3 rounded-t-[15px] h-full md:flex md:flex-col md:gap-2 bg-navy-900 hover:bg-navy-800 mt-[12%] lg:mt-[18%];
         }
 
         .options-button {
@@ -119,10 +124,14 @@
 
         .text-layout-2 {
             @apply flex flex-row md:flex-col md:items-start justify-between items-center;
+
+            .current-time {
+                @apply text-preset-3 md:text-preset-1
+            }
         }
 
         .footer {
-            @apply flex flex-row lg:flex-col lg:items-start lg:justify-between lg:pl-4 lg:gap-2 justify-around items-center py-3;
+            @apply flex flex-row lg:flex-col lg:items-start lg:justify-between lg:pl-4 lg:py-2 lg:gap-2 justify-around items-center py-3;
 
             .footer-option {
                 @apply text-purple-500 hover:text-navy-200 cursor-pointer;
@@ -135,15 +144,11 @@
     }
 
     .profile-container {
-        @apply flex flex-row lg:flex-col lg:items-start items-center gap-3 p-4 rounded-[15px] bg-purple-600;
+        @apply flex flex-row lg:flex-col lg:items-start lg:h-[354px] items-center gap-3 p-4 rounded-[15px] bg-purple-600;
 
         .text-content {
             @apply flex flex-col gap-1;
         }
-    }
-
-    .card-wrapper {
-        @apply relative;
     }
 
     .card-header {

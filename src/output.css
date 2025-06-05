@@ -14,17 +14,11 @@
     --color-white: #FFFFFF;
     --spacing: 8px;
     --text-base: 15px;
-    --text-base--line-height: calc(1.5 / 1);
     --text-lg: 18px;
-    --text-lg--line-height: calc(1.75 / 1.125);
     --text-xl: 24px;
-    --text-xl--line-height: calc(1.75 / 1.25);
     --text-2xl: 32px;
-    --text-2xl--line-height: calc(2 / 1.5);
     --text-3xl: 40px;
-    --text-3xl--line-height: calc(2.25 / 1.875);
     --text-4xl: 56px;
-    --text-4xl--line-height: calc(2.5 / 2.25);
     --font-weight-light: 300;
     --font-weight-normal: 400;
     --font-weight-medium: 500;
@@ -252,6 +246,22 @@
   .object-cover {
     object-fit: cover;
   }
+  .text-preset-4 {
+    font-size: var(--text-xl);
+    font-weight: var(--font-weight-light);
+  }
+  .text-preset-5 {
+    font-size: var(--text-lg);
+    font-weight: var(--font-weight-normal);
+  }
+  .text-preset-5-md {
+    font-size: var(--text-lg);
+    font-weight: var(--font-weight-medium);
+  }
+  .text-preset-6 {
+    font-size: var(--text-base);
+    font-weight: var(--font-weight-normal);
+  }
   .text-navy-200 {
     color: var(--color-navy-200);
   }
@@ -274,6 +284,12 @@
       grid-row: span 2 / span 2;
     }
   }
+  .lg\:text-preset-2 {
+    @media (width >= 1440px) {
+      font-size: var(--text-3xl);
+      font-weight: var(--font-weight-light);
+    }
+  }
 }
 @layer base {
   body {
@@ -289,50 +305,6 @@
     @media (width >= 768px) {
       justify-content: center;
     }
-  }
-}
-@layer utilities {
-  .text-preset-1 {
-    font-size: var(--text-4xl);
-    line-height: var(--tw-leading, var(--text-4xl--line-height));
-    --tw-font-weight: var(--font-weight-light);
-    font-weight: var(--font-weight-light);
-  }
-  .text-preset-2 {
-    font-size: var(--text-3xl);
-    line-height: var(--tw-leading, var(--text-3xl--line-height));
-    --tw-font-weight: var(--font-weight-light);
-    font-weight: var(--font-weight-light);
-  }
-  .text-preset-3 {
-    font-size: var(--text-2xl);
-    line-height: var(--tw-leading, var(--text-2xl--line-height));
-    --tw-font-weight: var(--font-weight-light);
-    font-weight: var(--font-weight-light);
-  }
-  .text-preset-4 {
-    font-size: var(--text-xl);
-    line-height: var(--tw-leading, var(--text-xl--line-height));
-    --tw-font-weight: var(--font-weight-light);
-    font-weight: var(--font-weight-light);
-  }
-  .text-preset-5 {
-    font-size: var(--text-lg);
-    line-height: var(--tw-leading, var(--text-lg--line-height));
-    --tw-font-weight: var(--font-weight-normal);
-    font-weight: var(--font-weight-normal);
-  }
-  .text-preset-5-md {
-    font-size: var(--text-lg);
-    line-height: var(--tw-leading, var(--text-lg--line-height));
-    --tw-font-weight: var(--font-weight-medium);
-    font-weight: var(--font-weight-medium);
-  }
-  .text-preset-6 {
-    font-size: var(--text-base);
-    line-height: var(--tw-leading, var(--text-base--line-height));
-    --tw-font-weight: var(--font-weight-normal);
-    font-weight: var(--font-weight-normal);
   }
 }
 @layer components {
@@ -392,6 +364,9 @@
       @media (width >= 768px) {
         gap: calc(var(--spacing) * 2);
       }
+      @media (width >= 1440px) {
+        margin-top: 18%;
+      }
     }
     .options-button {
       cursor: pointer;
@@ -419,6 +394,14 @@
       @media (width >= 768px) {
         align-items: flex-start;
       }
+      .current-time {
+        font-size: var(--text-2xl);
+        font-weight: var(--font-weight-light);
+        @media (width >= 768px) {
+          font-size: var(--text-4xl);
+          font-weight: var(--font-weight-light);
+        }
+      }
     }
     .footer {
       display: flex;
@@ -437,6 +420,9 @@
       }
       @media (width >= 1440px) {
         gap: calc(var(--spacing) * 2);
+      }
+      @media (width >= 1440px) {
+        padding-block: calc(var(--spacing) * 2);
       }
       @media (width >= 1440px) {
         padding-left: calc(var(--spacing) * 4);
@@ -469,6 +455,9 @@
     background-color: var(--color-purple-600);
     padding: calc(var(--spacing) * 4);
     @media (width >= 1440px) {
+      height: 354px;
+    }
+    @media (width >= 1440px) {
       flex-direction: column;
     }
     @media (width >= 1440px) {
@@ -479,9 +468,6 @@
       flex-direction: column;
       gap: calc(var(--spacing) * 1);
     }
-  }
-  .card-wrapper {
-    position: relative;
   }
   .card-header {
     background-size: auto;
@@ -503,17 +489,12 @@
   syntax: "*";
   inherits: false;
 }
-@property --tw-font-weight {
-  syntax: "*";
-  inherits: false;
-}
 @layer properties {
   @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
     *, ::before, ::after, ::backdrop {
       --tw-border-style: solid;
       --tw-outline-style: solid;
       --tw-tracking: initial;
-      --tw-font-weight: initial;
     }
   }
 }
