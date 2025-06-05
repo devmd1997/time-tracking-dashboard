@@ -68,7 +68,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       option.addEventListener("click", () => {
         footerOptions.forEach((opt) => opt.classList.remove("selected"));
         option.classList.add("selected");
-        currentPeriod = option.textContent.toLowerCase.trim();
+        currentPeriod = option.textContent.toLowerCase().trim();
 
         renderContent(data, currentPeriod, document);
       });
